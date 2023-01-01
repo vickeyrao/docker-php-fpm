@@ -60,8 +60,7 @@ jobs:
           images: |
               ${{ env.IMAGE_NAME }}
               ghcr.io/${{ env.IMAGE_NAME }}
-          tags: 
-          # minimal
+          tags: |
               type=semver,pattern={{version}}
 
       # Build and push Docker image with Buildx (don't push on PR)
