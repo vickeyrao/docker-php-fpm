@@ -8,8 +8,6 @@ RUN curl -sSLf \
 
 RUN \
 	adduser --system --disabled-password --home /var/cache/php-fpm --gid 100 --uid 1000 php-fpm \
-	&& sed -i "s#user = www-data.*#user = php-fpm#g" /usr/local/etc/php-fpm.d/www.conf \
-	&& sed -i "s#group = www-data.*#group = users#g" /usr/local/etc/php-fpm.d/www.conf \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends ffmpeg imagemagick zip pciutils usbutils\
 	&& apt-get clean \
