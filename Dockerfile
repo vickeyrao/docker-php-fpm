@@ -1,4 +1,4 @@
-FROM php:8.3.8-fpm-bullseye
+FROM php:8.5.1-fpm-trixie
 
 RUN curl -sSLf \
         -o /usr/local/bin/install-php-extensions \
