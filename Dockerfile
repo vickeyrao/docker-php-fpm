@@ -7,7 +7,6 @@ RUN curl -sSLf \
     install-php-extensions gd exif opcache
 
 RUN \
-    addgroup -g 100 php-fpm \ 
-	&& adduser -S -H -h /var/cache/php-fpm -G php-fpm -u 1000 php-fpm \
-	&& apk add --no-cache ffmpeg imagemagick zip pciutils usbutils \ 
-	&& rm -rf /var/cache/apk/*
+    adduser -S -H -h /var/cache/php-fpm -G users -u 1000 php-fpm \
+    && apk add --no-cache ffmpeg imagemagick zip pciutils usbutils \ 
+    && rm -rf /var/cache/apk/*
