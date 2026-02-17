@@ -7,9 +7,7 @@ RUN curl -sSLf \
     install-php-extensions gd exif opcache
 
 RUN \
-	adduser --system --disabled-password --home /var/cache/php-fpm --gid 100 --uid 1000 php-fpm \
-	&& apt-get update \
-	&& apt-get install -y --no-install-recommends ffmpeg imagemagick zip pciutils usbutils\
-	&& apt-get clean \
-	&& apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-	&& rm -rf /var/lib/apt/lists/* 
+    addgroup -g 100 php-fpm \ 
+	&& adduser -S -H -h /var/cache/php-fpm -G php-fpm -u 1000 php-fpm \
+	&& apk add --no-cache ffmpeg imagemagick zip pciutils usbutils \ 
+	&& rm -rf /var/cache/apk/*
