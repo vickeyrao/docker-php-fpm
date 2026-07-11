@@ -1,4 +1,4 @@
-FROM php:8.5.7-fpm-alpine
+FROM php:8.5.8-fpm-alpine
 
 RUN curl -sSLf \
         -o /usr/local/bin/install-php-extensions \
